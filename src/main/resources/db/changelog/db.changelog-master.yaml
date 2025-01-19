@@ -1,0 +1,9 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1
+      author: your-name
+      sqlFile:
+        path: scripts/db.changelog-1.0.sql
+        encoding: UTF-8
+        endDelimiter: ";"
+        stripComments: true

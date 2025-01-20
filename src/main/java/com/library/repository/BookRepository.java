@@ -11,6 +11,6 @@ import java.util.List;
 @Repository
 public interface BookRepository extends JpaRepository<Book, Long> {
 
-    @Query("SELECT b FROM Book b WHERE LOWER(b.author) = LOWER(:author)")
+    @Query("SELECT b FROM Book b WHERE LOWER(b.author) LIKE CONCAT('%', LOWER(:author), '%')")
     List<Book> findByAuthor(@Param("author") String author);
 }

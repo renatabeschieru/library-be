@@ -3,6 +3,7 @@ package com.library.controller;
 import com.library.dto.BookDto;
 import com.library.service.BookService;
 import jakarta.validation.Valid;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
@@ -46,6 +47,9 @@ public class BooksController {
 
     @GetMapping("/q")
     public List<BookDto> getBooksByAuthor(@RequestParam("author") String author) {
+        if (StringUtils.isBlank(author)) {
+            return bookService.getAllBooks();
+        }
         return bookService.findBooksByAuthor(author);
     }
 

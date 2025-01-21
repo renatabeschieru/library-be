@@ -13,4 +13,7 @@ public interface BookRepository extends JpaRepository<Book, Long> {
 
     @Query("SELECT b FROM Book b WHERE LOWER(b.author) LIKE CONCAT('%', LOWER(:author), '%')")
     List<Book> findByAuthor(@Param("author") String author);
+
+    @Query("SELECT COUNT(b) FROM Book b WHERE LOWER(b.author) LIKE CONCAT('%', LOWER(:author), '%')")
+    int countByAuthor(String author);
 }

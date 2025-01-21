@@ -64,4 +64,8 @@ public class BookService {
                 .collect(Collectors.toList());
     }
 
+    public Integer countBooksByAuthor(String author) {
+        return repository.countByAuthor(author);
+    }
+
 }

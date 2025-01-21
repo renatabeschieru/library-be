@@ -45,6 +45,11 @@ public class BooksController {
         return ResponseEntity.ok().build();
     }
 
+    @GetMapping("/count-by")
+    public Integer countBooksByAuthor(@RequestParam("author") String author) {
+        return bookService.countBooksByAuthor(author);
+    }
+
     @GetMapping("/q")
     public List<BookDto> getBooksByAuthor(@RequestParam("author") String author) {
         if (StringUtils.isBlank(author)) {

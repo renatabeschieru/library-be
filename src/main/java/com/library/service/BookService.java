@@ -17,8 +17,10 @@ public class BookService {
 
     @Autowired
     private BookRepository repository;
+
     @Autowired
     private BookDtoToEntityConverter dtoToEntityConverter;
+
     @Autowired
     private BookEntityToDtoConverter entityToDtoConverter;
 
